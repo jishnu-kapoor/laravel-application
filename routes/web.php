@@ -32,3 +32,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/index','PagesController@index');
 Route::get('/about','PagesController@about');
 Route::get('/services','PagesController@services');
+
+Route::resource('posts','PostsController');
