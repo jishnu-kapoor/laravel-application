@@ -4,16 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Post;
+
+use Illuminate\Support\Facades\DB;
+
+
 class PostsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
         //
+//        $posts = Post::all();
+//        return view('posts.index')->with('posts',$posts);
+
+//        $posts = Post::orderBy('title','desc')->get();
+//        return view('posts.index')->with('posts', $posts);
+
+//        $posts = DB:: select("SELECT * FROM posts ORDER BY id DESC");
+
+        $posts = Post::orderBy('title','desc')->paginate(10);
+        return view('posts.index')->with('posts', $posts);
+
     }
 
     /**
@@ -46,6 +62,8 @@ class PostsController extends Controller
     public function show($id)
     {
         //
+       $post = Post::find($id);
+       return view ('posts.show')->with('post', $post);
     }
 
     /**
