@@ -3,7 +3,7 @@
 @section('content')
 
     <h1>Posts</h1>
-    <a href ="posts" class = "btn btn-default">Go back</a>
+    <a href ="/laravel/public/posts/" class = "btn btn-default">Go back</a>
 
             <div class="jumbotron" >
                 <h6>ID:{{$post->id}}</h6>

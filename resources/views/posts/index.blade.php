@@ -1,12 +1,15 @@
 @extends('layouts.laravelAppLayout')
 
 @section('content')
-
-    <h1>Posts</h1>
-
+<div class="border-right">
+    <h1 align="center">A list of all available posts:</h1><br>
+{{--    <p><a class="btn btn-primary btn-lg" href="posts/create" role="button">Create a post</a>--}}
+{{--    </p>--}}
+</div>
     @if (count ($posts) > 0)
 
             @foreach($posts as $post)
+
             <div class="jumbotron" >
 
                 <h3><a href="posts/{{$post->id}}">{{$post->title}}</a></h3>
@@ -19,6 +22,7 @@
 
             </div>
             @endforeach
+
 {{$posts->links()}}
                 @else
                     <p>No Posts Found</p>
